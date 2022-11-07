@@ -1,0 +1,51 @@
+<odoo>
+         <!--   list view  -->
+    <record id="opportunity_list_view" model="ir.ui.view">
+      <field name="name">opportunity.list.view</field>
+      <field name="model">opportunity</field>
+      <field name="arch" type="xml">
+        <tree>
+            <field name="name"/>
+<!--            <field name="currency_id"/>-->
+            <field name="expected_revenue"/>
+            <field name="probability"/>
+<!--            <field name="customer_id"/>-->
+<!--            <field name="customer_email"/>-->
+<!--            <field name="customer_phone"/>-->
+            <field name="sales_team"/>
+            <field name="expected_closing"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="opportunity_form_view" model="ir.ui.view">
+      <field name="name">opportunity.form.view</field>
+      <field name="model">opportunity</field>
+      <field name="arch" type="xml">
+        <form>
+            <sheet>
+                <group>
+                    <field name="name"/>
+<!--                    <field name="currency_id"/>-->
+                    <field name="expected_revenue" widget="monetary"/>
+                    <field name="probability" widget="percentage"/>
+<!--                    <field name="customer_id"/>-->
+<!--                    <field name="customer_email"/>-->
+<!--                    <field name="customer_phone"/>-->
+                    <field name="sales_team"/>
+                    <field name="expected_closing"/>
+                </group>
+            </sheet>
+        </form>
+      </field>
+    </record>
+
+        <!--    action-->
+    <record id="action_opportunity" model="ir.actions.act_window">
+      <field name="name">Opportunity</field>
+      <field name="res_model">opportunity</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="opportunity_menu" action="action_opportunity" parent="customer_sub_menu" name="Opportunity"/>
+</odoo>

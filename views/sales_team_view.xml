@@ -1,0 +1,47 @@
+<odoo>
+    <!--   list view  -->
+    <record id="sales_team_list_view" model="ir.ui.view">
+      <field name="name">sales_team.list.view</field>
+      <field name="model">sales.team</field>
+      <field name="arch" type="xml">
+        <tree>
+            <field name="name"/>
+            <field name="quotation"/>
+            <field name="pipeline"/>
+            <field name="email"/>
+            <field name="accept_email"/>
+            <field name="invoice_target"/>
+        </tree>
+      </field>
+    </record>
+
+<!--    form view -->
+     <record id="sales_team_form_view" model="ir.ui.view">
+      <field name="name">sales_team.form.view</field>
+      <field name="model">sales.team</field>
+      <field name="arch" type="xml">
+        <form>
+            <group>
+                <field name="name" string="Sales Team"/>
+                <field name="quotation"/>
+                <field name="pipeline"/>
+                <field name="email"/>
+                <field name="accept_email"/>
+                <field name="invoice_target"/>
+                <field name="monthly_sales_id"/>
+            </group>
+        </form>
+      </field>
+    </record>
+
+
+<!--    action-->
+    <record id="action_sales_team" model="ir.actions.act_window">
+      <field name="name">Sales Team</field>
+      <field name="res_model">sales.team</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+<!--    menu -->
+    <menuitem id="sales_team_menu" action="action_sales_team" parent="monthly_sales_sub_menu" name="Sales Team"/>
+</odoo>
